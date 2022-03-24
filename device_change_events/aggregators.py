@@ -13,7 +13,7 @@ def agg_ev_events_per_hour(evDf: pd.DataFrame) -> pd.DataFrame:
     aggDf['date'] = aggDf['timestamp'].dt.date
     aggDf['hh'] = aggDf['timestamp'].dt.strftime('%H')
     aggDf['mm'] = aggDf['timestamp'].dt.strftime('%M')
-    aggDf['ss'] = aggDf['timestamp'].dt.strftime('%S')
+    # aggDf['ss'] = aggDf['timestamp'].dt.strftime('%S')
 
     # Lets create the base aggregation at the minutes level
     aggDf = aggDf.groupby(['date', 'hh', 'mm', 'device_id', 'event_type']).agg(count_of_events=pd.NamedAgg(column='event_payload', aggfunc='count'))
