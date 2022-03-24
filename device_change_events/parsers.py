@@ -13,14 +13,17 @@ DEVICE_SCHEMA = {
 
 def __clean_timestamp(rawValue:str) -> datetime:
     try:
-        actualVal = float(rawValue)
-        return datetime.fromtimestamp(actualVal)
+        if rawValue is not None:
+            actualVal = float(rawValue)
+            return datetime.fromtimestamp(actualVal)
     except Exception:
-        return None
+        pass
+
+    return None
 
 def __clean_device_id(rawValue:str) -> str:
     try:
-        if len(rawValue) == 8:
+        if rawValue is not None and len(rawValue) == 8:
             # parse as hex into decimal to confirm its a valid value
             _ = int(rawValue, 16)
             return rawValue.lower()
@@ -30,7 +33,7 @@ def __clean_device_id(rawValue:str) -> str:
     return None
 
 def __clean_event_type(rawValue:str) -> str:
-    if len(rawValue) >= 256:
+    if rawValue is None or len(rawValue) >= 256:
         # unexpected value, lets skip it
         return None
     
