@@ -1,3 +1,10 @@
 {
-    "python.pythonPath": "./device_change_changes"
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.terminal.executeInFileDir": true,
+    "files.exclude": {
+        ".pytest_cache": true,
+        "**/Thumbs.db": true,
+        ".venv": true,
+        "**/__pycache__": true
+    },
 }

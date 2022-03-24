@@ -2,6 +2,7 @@
 
 ## Environment Setup:
 - Requires Python 3.10+.
+- Recommend using VSCode for development.
 - Create a new venv:
     python -m venv .venv
 - Activate venv.

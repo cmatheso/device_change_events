@@ -1,4 +1,3 @@
-from numpy import result_type
 import pandas as pd
 import os
 import re
@@ -22,9 +21,9 @@ def __clean_timestamp(rawValue:str) -> datetime:
 def __clean_device_id(rawValue:str) -> str:
     try:
         if len(rawValue) == 8:
-            # parse as hex into decimal.
+            # parse as hex into decimal to confirm its a valid value
             _ = int(rawValue, 16)
-            return rawValue
+            return rawValue.lower()
     except Exception:
         pass
 
